@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:publish/view/shopping_page.dart';
 
 import 'view/home_nav.dart';
 

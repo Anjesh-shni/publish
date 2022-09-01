@@ -114,18 +114,39 @@ class _ShoppingPageState extends State<ShoppingPage> {
           GetX<CartController>(builder: (controller) {
             return controller.cartItems.isEmpty
                 ? Container()
-                : Container(
-                    height: 70,
-                    width: double.maxFinite,
-                    color: Colors.green.shade100,
-                    child: Center(
-                      child: Text(
-                        "Total Price:  \$${controller.totalPrice}",
-                        style: TextStyle(
-                          fontSize: 25,
+                : Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        margin: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: Colors.green.shade100,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        height: 70,
+                        width: double.maxFinite,
+                        child: Center(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Total Price:  \$${controller.totalPrice}",
+                                style: TextStyle(
+                                  fontSize: 25,
+                                ),
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  Get.to(CartPage());
+                                },
+                                child: Text("Check Out"),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
+                    ],
                   );
           }),
         ],
